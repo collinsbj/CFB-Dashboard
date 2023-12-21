@@ -1,8 +1,6 @@
 import TeamListItem from "./TeamListItem"
-import { Button } from "./ui/button"
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "./ui/card"
 
-export default async function RankingsCard({ year }) {
+const getRankData = async (year) => {
   const res = await fetch(
     `https://api.collegefootballdata.com/rankings?year=${year}`,
     {
@@ -12,9 +10,11 @@ export default async function RankingsCard({ year }) {
     },
   )
 
-  const data = await res.json()
+  return res.json()
+}
 
-  const teamsRes = await fetch(
+const getTeamsData = async (year) => {
+  const res = await fetch(
     `https://api.collegefootballdata.com/teams/fbs?year=${year}`,
     {
       headers: {
@@ -22,9 +22,17 @@ export default async function RankingsCard({ year }) {
       },
     },
   )
-  const teamsData = await teamsRes.json()
 
-  const mostRecentWeek = data[data.length - 1]
+  return res.json()
+}
+
+export default async function RankingsCard({ year }) {
+  const [rankData, teamsData] = await Promise.all([
+    getRankData(year),
+    getTeamsData(year),
+  ])
+
+  const mostRecentWeek = rankData[rankData.length - 1]
 
   const playoffPoll = mostRecentWeek.polls.find(
     (poll) => poll.poll === "Playoff Committee Rankings",

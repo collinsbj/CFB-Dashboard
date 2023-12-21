@@ -50,123 +50,117 @@ export default async function Home() {
 
   return (
     <>
-      <main className="container px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
-          <div>
-            <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
-              <CardHeader>
-                <CardTitle>Players in portal</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
-                <Suspense
-                  fallback={
-                    <div className="flex justify-center items-center h-full">
-                      <Loading className="w-10 h-10 animate-spin" />
-                    </div>
-                  }
-                >
-                  <PortalCard year={nextYear} />
-                </Suspense>
-              </CardContent>
-              <CardFooter className="p-6">
-                <Button size="sm">View Page</Button>
-              </CardFooter>
-            </Card>
-          </div>
-
-          <div>
-            <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
-              <CardHeader>
-                <CardTitle>Transfers</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
-                <Suspense
-                  fallback={
-                    <div className="flex justify-center items-center h-full">
-                      <Loading className="w-10 h-10 animate-spin" />
-                    </div>
-                  }
-                >
-                  <TransfersCard year={nextYear} />
-                </Suspense>
-              </CardContent>
-              <CardFooter className="p-6">
-                <Button size="sm">View Page</Button>
-              </CardFooter>
-            </Card>
-          </div>
-
-          <div>
-            <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
-              <CardHeader>
-                <CardTitle>Rankings</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
-                <Suspense
-                  fallback={
-                    <div className="flex justify-center items-center h-full">
-                      <Loading className="w-10 h-10 animate-spin" />
-                    </div>
-                  }
-                >
-                  <RankingsCard year={season} />
-                </Suspense>
-              </CardContent>
-              <CardFooter className="p-6">
-                <Button size="sm">View Page</Button>
-              </CardFooter>
-            </Card>
-          </div>
-
-          <div>
-            <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
-              <CardHeader>
-                <CardTitle>Recruiting</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
-                <Suspense
-                  fallback={
-                    <div className="flex justify-center items-center h-full">
-                      <Loading className="w-10 h-10 animate-spin" />
-                    </div>
-                  }
-                >
-                  <RecruitingCard year={nextYear} />
-                </Suspense>
-              </CardContent>
-              <CardFooter className="p-6">
-                <Button size="sm">View Page</Button>
-              </CardFooter>
-            </Card>
-          </div>
-
-          <div>
-            <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
-              <CardHeader>
-                <CardTitle>Games</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
-                <Suspense
-                  fallback={
-                    <div className="flex justify-center items-center h-full">
-                      <Loading className="w-10 h-10 animate-spin" />
-                    </div>
-                  }
-                >
-                  <GamesCard
-                    week={week}
-                    year={season}
-                    seasonType={seasonType}
-                  />
-                </Suspense>
-              </CardContent>
-              <CardFooter className="p-6">
-                <Button size="sm">View Page</Button>
-              </CardFooter>
-            </Card>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
+        <div>
+          <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
+            <CardHeader>
+              <CardTitle>Players in portal</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
+              <Suspense
+                fallback={
+                  <div className="flex justify-center items-center h-full">
+                    <Loading className="w-10 h-10 animate-spin" />
+                  </div>
+                }
+              >
+                <PortalCard year={nextYear} />
+              </Suspense>
+            </CardContent>
+            <CardFooter className="p-6">
+              <Button size="sm">View Page</Button>
+            </CardFooter>
+          </Card>
         </div>
-      </main>
+
+        <div>
+          <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
+            <CardHeader>
+              <CardTitle>Transfers</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
+              <Suspense
+                fallback={
+                  <div className="flex justify-center items-center h-full">
+                    <Loading className="w-10 h-10 animate-spin" />
+                  </div>
+                }
+              >
+                <TransfersCard year={nextYear} />
+              </Suspense>
+            </CardContent>
+            <CardFooter className="p-6">
+              <Button size="sm">View Page</Button>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div>
+          <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
+            <CardHeader>
+              <CardTitle>Rankings</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
+              <Suspense
+                fallback={
+                  <div className="flex justify-center items-center h-full">
+                    <Loading className="w-10 h-10 animate-spin" />
+                  </div>
+                }
+              >
+                <RankingsCard year={season} />
+              </Suspense>
+            </CardContent>
+            <CardFooter className="p-6">
+              <Button size="sm">View Page</Button>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div>
+          <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
+            <CardHeader>
+              <CardTitle>Recruiting</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
+              <Suspense
+                fallback={
+                  <div className="flex justify-center items-center h-full">
+                    <Loading className="w-10 h-10 animate-spin" />
+                  </div>
+                }
+              >
+                <RecruitingCard year={nextYear} />
+              </Suspense>
+            </CardContent>
+            <CardFooter className="p-6">
+              <Button size="sm">View Page</Button>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div>
+          <Card className="flex flex-col md:col-span-1 h-[450px] hover:shadow-lg transition-shadow duration-200">
+            <CardHeader>
+              <CardTitle>Games</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col justify-between flex-grow overflow-y-auto">
+              <Suspense
+                fallback={
+                  <div className="flex justify-center items-center h-full">
+                    <Loading className="w-10 h-10 animate-spin" />
+                  </div>
+                }
+              >
+                <GamesCard week={week} year={season} seasonType={seasonType} />
+              </Suspense>
+            </CardContent>
+            <CardFooter className="p-6">
+              <Button size="sm">View Page</Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
     </>
   )
 }
